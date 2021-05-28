@@ -1,17 +1,16 @@
 from flask import Flask, render_template, url_for, request, redirect, send_file
 
 import matplotlib.pyplot as plt
-from io import BytesIO
 import os
 import networkx as nx
 from networkx.algorithms.flow import dinitz
 from dinic import MaxFlow
-C = [[ 0, 16, 13, 0, 0, 0 ],  # s
-     [ 0, 0, 10, 12, 0, 0 ],  # o
-     [ 0, 4, 0, 0, 14, 0 ],  # p
-     [ 0, 0, 9, 0, 0, 20 ],  # q
-     [ 0, 0, 0, 7, 0, 4],  # r
-     [ 0, 0, 0, 0, 0, 3 ]]  # t
+C = [[ 0, 16, 13, 0, 0, 0 ],
+     [ 0, 0, 10, 12, 0, 0 ], 
+     [ 0, 4, 0, 0, 14, 0 ], 
+     [ 0, 0, 9, 0, 0, 20 ],
+     [ 0, 0, 0, 7, 0, 4],  
+     [ 0, 0, 0, 0, 0, 3 ]]  
 
 app=Flask(__name__)
 
@@ -28,7 +27,6 @@ def index():
     except:
         pass
 
-
     G = nx.DiGraph()
 
     G.add_edge("x", "a", capacity=16);
@@ -41,6 +39,7 @@ def index():
     G.add_edge("c", "e", capacity=20);
     G.add_edge("d", "c", capacity=7);
     G.add_edge("d", "e", capacity=4);
+
     pos=nx.spring_layout(G) 
     nx.draw(G,pos, with_labels = True,)
     labels = nx.get_edge_attributes(G,'capacity')
@@ -55,7 +54,7 @@ def index():
         except nx.NetworkXError:
             pass       
         
-        return render_template('resultado.html', flow = str(test), entrada="x", sainda="y")
+        return render_template('resultado.html', flow = str(test))
 
     else:
         return render_template('index.html')
