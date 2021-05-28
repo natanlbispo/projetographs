@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block head %}
+<title>Dinic Algorithm</title>
+{% endblock %} {% block body %}
+ 
+<div class="content">
+  <h1 style="text-align: center">Para o Grafo defina vertice de entrada e saída</h1>
+  <IMG class="displayed"src="../static/Graph.png" alt="Grafo">
+   <div class="form">
+    <form action="/" method="POST">
+      <br><br>
+       <label for="verticesaida">Escolha o vertice de saida: </label>
+        <select name="content0" id="content0">
+          <option value=1>a</option>
+          <option value=2>b</option>
+          <option value=3>c</option>
+          <option value=4>d</option>
+          <option value=5>e</option>
+          <option value=0>x</option>
+        </select>
+      <br><br>
+      <label for="verticenetrada">Escolha o vertice de chegada: </label>
+        <select name="content2" id="content2">
+          <option value=1>a</option>
+          <option value=2>b</option>
+          <option value=3>c</option>
+          <option value=4>d</option>
+          <option value=5>e</option>
+          <option value=0>x</option>
+        </select>
+      <br><br>
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+</div>
+{% endblock %}

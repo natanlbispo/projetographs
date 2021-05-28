@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block head %}
+<title>Dinic Algorithm</title>
+{% endblock %} {% block body %}
+<div class="content">
+  <h1 style="text-align: center">
+    Para o Grafo defina vertice de entrada e saída
+  </h1>
+  <img src="../static/Graph.png" alt="Grafo" />
+
+  <div class="form">
+    <form action="/" method="POST">
+      <img
+        src="{{ url_for('graph', nodes=nodes) }}"
+        height="200"
+      />
+      <input type="text" name="content" id="content" />
+      <input type="text" name="content2" id="content2" />
+      <input type="submit" value="Add Task" />
+    </form>
+  </div>
+</div>
+{% endblock %}
