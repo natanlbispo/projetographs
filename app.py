@@ -69,11 +69,8 @@ def index():
             if (flow_value == R.graph["flow_value"]):
                 test = R.graph["flow_value"]
             else:
-                test = MaxFlow(C,int(data['content0']),int(data['content2']))
-            
-            
+                test = MaxFlow(C,int(data['content0']),int(data['content2']))            
             tes = list(nx.maximum_flow(G, lista[int(data['content0'])], lista[int(data['content2'])]))[1:]
-            
             try:
                 if(os.path.exists(save)):
                     os.remove(save2)
@@ -90,8 +87,14 @@ def index():
             nx.draw_networkx_edge_labels(N,pos,edge_labels=labels)
             plt.savefig(save2, format="PNG")
 
-
-            return render_template('resultado.html', flow = str(test))
+            pam1 = lista[int(data['content0'])]
+            pam2 = lista[int(data['content2'])]
+            if (flow_value != 0):
+                message = "O Fluxo máximo para as entradas(entrada: " +pam1+", sáida: "+pam2+") é "+str(flow_value)
+                return render_template('resultado.html', msg = message, flow=flow_value)
+            else:
+                message = "Não existe fluxo para as entradas (entrada: " +pam1+", sáida: "+pam2+")"
+                return render_template('resultado2.html', msg = message)
         except nx.NetworkXError:
             return render_template('erro.html', erro = "Parametros inválidos") 
         
