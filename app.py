@@ -80,7 +80,8 @@ def index():
             for d in tes:
                 for k, v in d.items():
                     for k1, v1 in v.items():
-                        N.add_edge(k, k1, capacity=int(v1));
+                        if(v1):
+                            N.add_edge(k, k1, capacity=int(v1));
             figure = plt.figure()
             nx.draw(N,pos, with_labels = True,)
             labels = nx.get_edge_attributes(N,'capacity')
