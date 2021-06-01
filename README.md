@@ -34,7 +34,12 @@ Pré-requisitos:
 $ pip install virtualenv
 ```
 
-2. : Iniciando o Ambiente virtual :
+2. Montar um  o `virtualenv`:
+```
+$ python -m  virtualenv env
+```
+
+3. : Iniciando o Ambiente virtual :
 ```
 $  source env/bin/activate
 ```
