@@ -43,6 +43,10 @@ $ python -m  virtualenv env
 ```
 $  source env/bin/activate
 ```
+ou
+```
+$  source .\env\Scripts\activate
+```
 
 4. Instalando as dependências:
 ```
